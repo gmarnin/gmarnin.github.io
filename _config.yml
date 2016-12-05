@@ -10,7 +10,7 @@ locale                   : "en"
 title                    : ""
 title_separator          : "|"
 name                     : "garnin"
-description              : "Notes from a Macadmin."
+description              : "Notes from a Macadmin"
 url                      : "http://gmarnin.com"
 baseurl                  : "gmarnin.github.io"
 repository               : "gmarnin/gmarnin.github.io"
@@ -79,10 +79,10 @@ analytics:
 author:
   name             : "gmarnin"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "Notes from a Macadmin"
   location         : "Always Somewhere"
   email            :
-  uri              : "gmarnin.com"
+  uri              : ""
   bitbucket        :
   codepen          :
   dribbble         :
