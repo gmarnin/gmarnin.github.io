@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "gmarnin"
+title                    : ""
 title_separator          : "|"
-name                     : "Marnin"
+name                     : "garnin"
 description              : "Notes from a Macadmin."
 url                      : "http://gmarnin.com"
 baseurl                  : "gmarnin.github.io"
@@ -82,7 +82,7 @@ author:
   bio              : "I am an amazing person."
   location         : "Always Somewhere"
   email            :
-  uri              :
+  uri              : "gmarnin.com"
   bitbucket        :
   codepen          :
   dribbble         :
