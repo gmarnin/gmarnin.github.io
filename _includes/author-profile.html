@@ -25,15 +25,6 @@
     {% endif %}
   </div>
   
-    <div class="author__content">
-    <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
-    {% if author.footer %}
-      <p class="author__footer" itemprop="description">
-        {{ author.footer }}
-      </p>
-    {% endif %}
-  </div>
-
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
     <ul class="author__urls social-icons">
@@ -197,4 +188,13 @@
       {% endif %}
     </ul>
   </div>
+  
+  <div class="author__content">
+    {% if author.footer %}
+      <p class="author__footer" itemprop="description">
+        {{ author.footer }}
+      </p>
+    {% endif %}
+  </div>
+  
 </div>
