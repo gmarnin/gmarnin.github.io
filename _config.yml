@@ -96,7 +96,7 @@ author:
   lastfm           :
   linkedin         :
   pinterest        :
-#  slack            : "@gmarnin"
+  slack            : 
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   steam            :
@@ -106,9 +106,9 @@ author:
   weibo            :
   xing             :
   youtube          :
-  rss              : "rss"
+  rss              : 
   footer           : "Powered by Jekyll & Minimal Mistakes theme. © 2017. All rights reserved."
-  website          : "http://gmarnin.com/test"
+  website          : 
   
 
 # Reading Files
