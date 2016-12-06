@@ -105,8 +105,9 @@ author:
   weibo            :
   xing             :
   youtube          :
+  rss              :
   footer           : "Powered by Jekyll & Minimal Mistakes theme. © 2017. All rights reserved."
-
+  
 
 # Reading Files
 include:
