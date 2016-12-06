@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Gmarnin"
+title                    : ""
 title_separator          : "|"
 name                     : "gmarnin"
 description              : "Notes from a Macadmin"
