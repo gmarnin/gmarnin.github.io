@@ -108,6 +108,7 @@ author:
   youtube          :
   rss              : "rss"
   footer           : "Powered by Jekyll & Minimal Mistakes theme. © 2017. All rights reserved."
+  website          : "http://gmarnin.com"
   
 
 # Reading Files
