@@ -35,13 +35,20 @@
         </li>
       {% endif %}
       
-      {% if author.uri %}
+  <!--   {% if author.uri %}
         <li>
           <a href="{{ author.uri }}" itemprop="url">
             <i class="fa fa-fw fa-chain" aria-hidden="true"></i> 
               {{ site.data.ui-text[site.locale].website_label | default: "Home" }}
           </a>
         </li>
+      {% endif %} -->
+      
+      {% if author.website %}
+        <li><a href="http://gmarnin" itemprop="sameAs">
+          <i class="fa fa-fw fa-chain" aria-hidden="true"></i> 
+          Home
+        </a></li>
       {% endif %}
       
       {% if author.email %}
@@ -195,7 +202,7 @@
        {% if author.slack %}
         <li><a href="https://macadmins.herokuapp.com" itemprop="sameAs">
           <i class="fa fa-slack" aria-hidden="true"></i>
-          Slack
+          MacAdmin Slack
         </a></li>
       {% endif %}
     </ul>
