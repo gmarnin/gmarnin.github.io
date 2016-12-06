@@ -10,5 +10,5 @@ main:
   #   url: /collection-archive/
   - title: "Sitemap"
     url: /sitemap/
-   - title: "Google"
+  - title: "Google"
     url: /http://google.com/
