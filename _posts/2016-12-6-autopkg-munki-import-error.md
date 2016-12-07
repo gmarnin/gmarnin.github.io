@@ -29,9 +29,9 @@ Not exactly the same error as before. After closer inspection, it's the MunkiImp
 
 `plutil -lint /Volumes/server/munki/catalogs/*`
 
-```/Volumes/macupdates/munki/catalogs/all: Encountered unexpected EOF
-/Volumes/macupdates/munki/catalogs/production: OK
-/Volumes/macupdates/munki/catalogs/testing: OK```
+`/Volumes/macupdates/munki/catalogs/all: Encountered unexpected EOF`
+`/Volumes/macupdates/munki/catalogs/production: OK`
+`/Volumes/macupdates/munki/catalogs/testing: OK`
 
 That surprised me. Not sure how that happen but the fix is an easy one: Run `makecatalogs` which came back clean. I ran my recipe list again and everything was normal.
 
