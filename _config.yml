@@ -47,6 +47,10 @@ staticman:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
+# RSS feed info
+url:                     : "http://gmarnin.com'
+author:                  : "Marnin"
+
 # SEO Related
 google_site_verification :
 bing_site_verification   :
@@ -109,7 +113,7 @@ author:
   rss              : "rss"
   footer           : "Powered by Jekyll & Minimal Mistakes theme. © 2017. All rights reserved."
   website          : "http://gmarnin.com"
-  
+
 
 # Reading Files
 include:
