@@ -1,7 +1,7 @@
 ---
 title:  "When AutoPkg Meets a Munki Catalog Error"
 author: gmarnin
-excerpt: "a munki all catalog error caused autopkg munkimport processor error"
+excerpt: "Munki catalog error caused autopkg munkimport processor error"
 tags:
   - munki
   - autopkg
@@ -17,7 +17,7 @@ kCFPropertyListOldStyleParsingError=Error Domain=NSCocoaErrorDomain Code=3840 "M
 UserInfo={NSDebugDescription=Malformed data byte group at line 1; invalid hex}}
 Failed.```
 
-At first I thought I had an AutoPkg trust error because that is all that changed in AutoPkg. To rule out AutoPkg 1.0, I downgraded to AutoPkg 0.6.1 and ran my recipe list again. Same error.
+At first I thought I had an AutoPkg trust error because that is all that changed in AutoPkg. To rule out AutoPkg 1.0.0, I downgraded to AutoPkg 0.6.1 and ran my recipe list again. Same error.
 
 I then tested a recipe I never used before: Zoom.munki. I made an override for it, like I do with all my recipes but sans the parent trust info, and ran it:
 
@@ -28,8 +28,8 @@ I then tested a recipe I never used before: Zoom.munki. I made an override for i
 Not exactly the same error as before. After closer inspection, it's the MunkiImporter Processor that's at fault. I haven't made any recent changes that would cause MunkiImporter Processor to balk so what is going here? I wasn't sure so I asked [Greg](https://twitter.com/gregneagle) who suspected that I have an invalid plist somewhere in my munki repo. He was right:
 
 `plutil -lint /Volumes/server/munki/catalogs/*`
-```
-/Volumes/macupdates/munki/catalogs/all: Encountered unexpected EOF
+
+```/Volumes/macupdates/munki/catalogs/all: Encountered unexpected EOF
 /Volumes/macupdates/munki/catalogs/production: OK
 /Volumes/macupdates/munki/catalogs/testing: OK```
 
