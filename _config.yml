@@ -48,8 +48,8 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 
 # RSS feed info
-url:                     : "http://gmarnin.com'
-author:                  : "Marnin"
+url                      : "http://gmarnin.com"
+author                   : "Marnin"
 
 # SEO Related
 google_site_verification :
