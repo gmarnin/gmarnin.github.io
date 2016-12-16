@@ -9,14 +9,14 @@ tags:
 ---
 
 
-As part of our network security plan, we lock down all the network ports in the spaces that we manage. We also have some long standing policies around ethernet ports such as only allowing managed desktops on them and binding the MAC address to the port. These policies address various issues such as only allowing authorized devices on our network and preventing desktops from being moving around. Desktops have their Wi-Fi interface [disabled via a configuration profile](https://github.com/gmarnin/Profiles/blob/master/Disable-Wifi-1.0.mobileconfig) installed via a [Munki Conditional Item](https://github.com/munki/munki/wiki/Conditional-Items). Mobile devices can remote into our network via vpn but ethernet is off limits.
+As part of our network security plan, we manage all the ethernet ports in the spaces that we support. We have some long standing policies around ethernet ports such as only allowing managed desktops access, binding the MAC address to the port and disabling ports not in use. These policies address various issues such as only allowing authorized devices on our network, preventing desktops from being moving around, and preventing unauthorized devices from being connected on our network. Desktops have their Wi-Fi interface [disabled via a configuration profile](https://github.com/gmarnin/Profiles/blob/master/Disable-Wifi-1.0.mobileconfig) installed via a [Munki Conditional Item](https://github.com/munki/munki/wiki/Conditional-Items). Mobile devices can remote into our network via vpn but ethernet is off limits.
 
-The practical impact of these policies is that everytime we setup a new desktop or move an office around we have to configure or reconfigure the ethernet ports too. We have several expensive [Fluke](http://www.flukenetworks.com) devices to query our Cisco switches for [Cisco Discovery Protocol aka CDP](http://www.cisco.com/c/en/us/td/docs/ios/12_2/configfun/configuration/guide/ffun_c/fcf015.html)
-which provides the info needed by the networking team. Using the Fluke method works well but has some annoying downsides. Namely, You have to remember to take the Fluke with you when doing fieldwork. We support offices all over town and if you forget the Fluke while cross town the job is over before it begins. Worse, sometimes the Flukes doesn't get returned to their shelf when not in use, gets left on desk in someones office or are all in use when I need one. Dead batteries happen too. These are all are common scenarios that are very inconvenient when work has to get done.  
+The practical impact of these policies is that everytime we setup a new desktop or move devices around we have to configure or reconfigure the ethernet ports too. We have several expensive [Fluke](http://www.flukenetworks.com) devices to query our Cisco switches for [Cisco Discovery Protocol aka CDP](http://www.cisco.com/c/en/us/td/docs/ios/12_2/configfun/configuration/guide/ffun_c/fcf015.html)
+which provides the info needed by the networking team. Using the Fluke method works well but has some annoying downsides. Namely, You have to remember to take the Fluke with you when doing fieldwork. We support offices all over town and if you forget the Fluke while across town the job is over before it begins. Worse, sometimes the Flukes don't get returned to their shelf when not in use, get left on desk in someones office or are all in use when I need one. Dead batteries happen too. These are all are common scenarios that are very inconvenient when work has to get done.  
 
-Of course using the Fluke isn't the only way to query Cisco switches for the relevant information. While researching a alternate methods, I found [whichSwitch](http://www.computernetworkbasics.com/whichswitch/) which is an gui application that displays CDP information. It works great but has to be installed on every Mac and only runs via the gui. whichSwitch uses [tshark](https://www.wireshark.org/docs/man-pages/tshark.html), a terminal oriented version of Wireshark, to grab CDP.  [tshark can be used](https://wiki.wireshark.org/CDP) without whichSwitch but it's a dependency that I don't want to manage. The installations can all be automated but is not ideal for my use case. Too much work.
+Of course using the Fluke isn't the only way to query Cisco switches for the relevant information. While researching alternate methods, I found [whichSwitch](http://www.computernetworkbasics.com/whichswitch/) which is an gui application that displays CDP information. It works great but has to be installed on every Mac and only runs via the gui. whichSwitch uses [tshark](https://www.wireshark.org/docs/man-pages/tshark.html), a terminal based version of Wireshark, to grab CDP.  [tshark can be used](https://wiki.wireshark.org/CDP) without whichSwitch but it's a dependency that I don't want to manage. The installations can all be automated but is not ideal for my use case. Too much work.
 
-There is a better way. We can capture CDP information without a Fluke, gui app or third party dependencies. I'm not the first person on to post this command but I sure do use it enough  warrant posting it agin. A carefully crafted tcpdump command can do it:
+There is a better way. We can capture CDP information without a Fluke, gui app or third party dependencies. I'm not the first person on to post this command but I sure do use it enough  warrant posting it again. A carefully crafted tcpdump command can do it:
 
 `/usr/sbin/tcpdump -nn -v -i en0 -s 1500 -c 1 'ether[20:2] == 0x2000'`
 
@@ -56,6 +56,8 @@ Link Speed: 1000baseT
 Switch Results:
 Switch Port = GigabitEthernet1/0/32
 Vlan = 120
-Switch Location =
+Switch Location = Basement-Building-3
 Switch Name = b01-foo-bar
 Switch IP = 172.X.X.X```
+
+In some cases, usually to further network security, CDP might be turned off on the port you are querying. An indication of this is if the script doesn't return any results after 60 seconds.
