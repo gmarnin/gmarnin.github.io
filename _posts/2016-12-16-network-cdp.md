@@ -33,8 +33,8 @@ To understand what's going on with all those switches:
 I have posted my [CDP switch script](https://github.com/gmarnin/Mac-Scripts/blob/master/switch_script.sh) for all to use. Along with the above tcpdump command, the script also finds the MAC, IP and link speed for the active ethernet interface. CDP can show some interesting information not easily natively obtainable from the Mac which could come in handy when troubleshooting or documenting your network setup. Examples are which switch port the Mac is plugged into and the vlan the Mac is on. The name of the switch, ip address and physical location are also available. The switch model and duplex setting are returned but are not shown in my script output. I simply don't need that information. To view the raw CDP information returned run `cat /tmp/network.txt`.
 
 Sample output from the script:
-```
-$ sudo /Library/ITS/switch_script.sh
+
+```$ sudo /Library/ITS/switch_script.sh
 Password:
 
 If the Ethernet interface is active, this script can take up to 30 seconds to run.
@@ -56,8 +56,7 @@ Switch Port = GigabitEthernet1/0/32
 Vlan = 120
 Switch Location = Basement-Building-3
 Switch Name = b01-foo-bar
-Switch IP = 172.X.X.X
-```
+Switch IP = 172.X.X.X```
 
 The main advantage is I never forget the script. I always know where it is. If I need to run the script again, I don't have to visit the port in question. I can remote into the Mac and run it. I can then copy the results and send it off to networking. Bonus points for not having any hardware or software dependencies.
 
