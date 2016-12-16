@@ -58,6 +58,7 @@ Switch Port = GigabitEthernet1/0/32
 Vlan = 120
 Switch Location = Basement-Building-3
 Switch Name = b01-foo-bar
-Switch IP = 172.X.X.X```
+Switch IP = 172.X.X.X
+```
 
 In some cases, usually to further network security, CDP might be turned off on the port you are querying. An indication of this is if the script doesn't return any results after 60 seconds.
