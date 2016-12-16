@@ -61,3 +61,5 @@ Switch IP = 172.X.X.X
 The main advantage is I never forget the script. I always know where it is. If I need to run the script again, I don't have to visit the port in question. I can remote into the Mac and run it. I can then copy the results and send it off to networking. Bonus points for not having any hardware or software dependencies.
 
 In some cases, usually to further network security, CDP might be turned off on the port you are querying. An indication of this is if the script doesn't return any results after 60 seconds.
+
+I hope our Flukes don't get offended.
