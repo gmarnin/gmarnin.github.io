@@ -58,7 +58,6 @@ Vlan = 120
 Switch Location = Basement-Building-3
 Switch Name = b01-foo-bar
 Switch IP = 172.X.X.X
-
 ```
 
 The main advantage is I never forget the script. I always know where it is. If I need to run the script again, I don't have to visit the port in question. I can remote into the Mac and run it. I can then copy the results and send it off to networking. Bonus points for not having any hardware or software dependencies.
