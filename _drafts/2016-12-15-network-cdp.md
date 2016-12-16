@@ -30,9 +30,7 @@ To understand what's going on with all those switches:
 - `-c` - Count 1 packet (in this case) and exit
 - `ether[20:2] == 0x2000` Check bytes 20 and 21 from the start of the ethernet header for a value of 2000 (hex)
 
-I have posted my [CDP switch script](https://github.com/gmarnin/Mac-Scripts/blob/master/switch_script.sh) for all to use. Along with the above tcpdump command, the script also finds the MAC, IP and link speed for the active ethernet interface. It's not perfect but it does the job for me.
-
-The main advantage is I never forget the script. I always know where it is. If I need to run the script again, I don't have to visit the port in question. I can remote into the Mac and run it. I can then copy the results and send it off to networking. Bonus points for not having any hardware or software dependencies.
+I have posted my [CDP switch script](https://github.com/gmarnin/Mac-Scripts/blob/master/switch_script.sh) for all to use. Along with the above tcpdump command, the script also finds the MAC, IP and link speed for the active ethernet interface. CDP can show some interesting information not easily natively obtainable from the Mac which could come in handy when troubleshooting or documenting your network setup. Examples are which switch port the Mac is plugged into, the vlan the Mac is on, and the name, ip and physical location of the switch.
 
 Sample output from the script:
 ```
@@ -60,5 +58,6 @@ Switch Location = Basement-Building-3
 Switch Name = b01-foo-bar
 Switch IP = 172.X.X.X
 ```
+The main advantage is I never forget the script. I always know where it is. If I need to run the script again, I don't have to visit the port in question. I can remote into the Mac and run it. I can then copy the results and send it off to networking. Bonus points for not having any hardware or software dependencies.
 
 In some cases, usually to further network security, CDP might be turned off on the port you are querying. An indication of this is if the script doesn't return any results after 60 seconds.
