@@ -12,7 +12,7 @@ I had a need to reboot a small lab of student use iMacs every night. My first th
 
 So in Profiler Manager Server 5.1.5, I went looking for the setting to schedule reboot. To my surprise, I didn't find it anywhere. In the Energy Saver section, I have the option to sleep or shutdown the Mac on a schedule but no option to restart. In the Energy Saver preference pane in macOS there is a option to restart on a schedule but the option to do so is missing from Profile Manager. It didn't make sense to me why the restart option was missing from Profile Manager.
 
-![No restart option in Profile Manager](https://github.com/gmarnin/gmarnin.github.io/blob/master/images/profile_manager_no_restart_option.png)
+![No restart option in Profile Manager]({{ site.url }}{{ site.baseurl }}/images/profile_manager_no_restart_option.png)
 
 To work around this limitation, and because I only had a small lab of iMacs that needed this setting, I could of manually configured each Mac by hand. But I know that won't scale should my need to schedule restart on more Macs grow.
 
