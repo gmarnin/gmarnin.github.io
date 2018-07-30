@@ -68,7 +68,7 @@ SUBMITURL="https://ip.address/munki/munki-enroll/enroll.php"
 	"$SUBMITURL"
 ```
 
-The `postinstall` script uses `/usr/sbin/chroot` and cleans up the  :
+The `postinstall` script uses `/usr/sbin/chroot` and cleans up:
 
 ```
 #!/bin/sh
