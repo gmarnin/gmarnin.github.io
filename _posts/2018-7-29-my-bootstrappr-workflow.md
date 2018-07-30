@@ -70,7 +70,8 @@ SUBMITURL="https://ip.address/munki/munki-enroll/enroll.php"
 
 The `postinstall` script uses `/usr/sbin/chroot` and cleans up:
 
-```#!/bin/sh
+```
+#!/bin/sh
 
 # Macintosh HD is hard coded because new Macs have shipped with that HD name since forever
 /usr/sbin/chroot /Volumes/Macintosh\ HD /Users/Shared/bootstrappr_macname_munki_enroll.sh
