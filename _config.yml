@@ -11,7 +11,7 @@ title                    : "gmarnin"
 title_separator          : "|"
 name                     : "gmarnin"
 description              : "Notes from a Macadmin"
-url                      : "http://gmarnin.com"
+url                      : "https://gmarnin.com"
 # baseurl                  : "gmarnin.github.io" #gmarnin.github.io
 repository               : "gmarnin/gmarnin.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -83,7 +83,7 @@ author:
   bio              : "Notes from a Macadmin"
   location         : "Always Somewhere"
   email            :
-  uri              : http://gmarnin.com
+  uri              : https://gmarnin.com
   bitbucket        :
   codepen          :
   dribbble         :
