@@ -97,6 +97,52 @@ The other packages Bootstrappr installs are (in order):
 7_disable-login-popups-1.3.pkg
 ```
 
+###Update
+
+After imaging several dozen Macs using Bootstrappr with the chroot method destribed above, I ultimatly found the chroot method of naming the Mac unreliable. 
+I haven't been able to pin down why some Macs get named and some don't. I needed a more consistant workflow and so I changed things up again. I'm still having Bootstrappr
+ask for and write the computer name to `/Users/Shared/computer_name.txt` because that always works. I stopped using `chroot` and moved the naming of the Mac to
+to Munki, using a `postinstall_script` in a `nopkg` that is in my `site_default` manifest:
+
+```
+ <key>installcheck_script</key>
+    <string>#!/bin/sh
+
+# Check if computer_name file exists. Abort if it doesn't exist. 
+
+if [ ! -f /Users/Shared/computer_name.txt ]; then
+    echo "/Users/Shared/computer_name.txt not found!"
+    exit 1
+fi
+
+    </string>
+    <key>postinstall_script</key>
+	<string>#!/bin/bash
+
+# This script is part of our bootstrappr workflow. It sets the Mac name, and gens a munki manifest based on munki-enroll.
+
+ComputerName=`cat /Volumes/Macintosh\ HD/Users/Shared/computer_name.txt`
+Serial=`/usr/sbin/ioreg -l | grep IOPlatformSerialNumber | cut -d'"' -f4
+
+# Name the Mac
+/usr/sbin/scutil --set ComputerName "$ComputerName"
+/usr/sbin/scutil --set HostName "$ComputerName"
+/usr/sbin/scutil --set LocalHostName "$ComputerName"
+
+SUBMITURL="https://ip.address/munki/munki-enroll/enroll.php"
+
+	/usr/bin/curl -vv -k -H 'Authorization:Basic KeyGoesHere' --max-time 5 --silent --get \
+	-d computername="$ComputerName" \
+	-d serial="$Serial" \
+	"$SUBMITURL"
+
+# Remove the file computer_name.txt bootstrappr file
+/bin/rm /Users/Shared/computer_name.txt
+
+exit 0
+    </string>
+```
+
 I hope you find this workflow useful or at least gives you an idea of what Bootstrappr can do. If you have a similar workflow that improves on mine, please let me know. 
 
 Happy imaging! 
