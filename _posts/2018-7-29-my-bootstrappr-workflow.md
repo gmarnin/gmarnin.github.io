@@ -99,8 +99,8 @@ The other packages Bootstrappr installs are (in order):
 
 ### Update
 
-After imaging several dozen Macs using Bootstrappr with the chroot method destribed above, I ultimatly found the chroot method of naming the Mac unreliable. 
-I haven't been able to pin down why some Macs get named and some don't. I needed a more consistant workflow and so I changed things up again. I'm still having Bootstrappr
+After imaging several dozen Macs using Bootstrappr with the chroot method described above, I ultimately found the chroot method of naming the Mac unreliable. 
+I haven't been able to pin down why some Macs get named and some don't. I needed a more consistent workflow and so I changed things up again. I'm still having Bootstrappr
 ask for and write the computer name to `/Users/Shared/computer_name.txt` because that always works. I stopped using `chroot` and moved the naming of the Mac to
 to Munki, using a `postinstall_script` in a `nopkg` that is in my `site_default` manifest:
 
